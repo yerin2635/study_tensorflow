@@ -229,11 +229,11 @@ with tf.compat.v1.Session() as sess:
 
     ## 儲存模型
     saver = tf.compat.v1.train.Saver()
-    save_path = saver.save(sess, "saveModel/CNN_model1")
+    save_path = saver.save(sess, "handwritten_numeral_recognition/saveModel/CNN_model1")
     print("Model saved in file: %s" % save_path)
     merged = tf.compat.v1.summary.merge_all()
     # 可將 計算圖，透過 TensorBoard 視覺化
-    train_writer = tf.compat.v1.summary.FileWriter('log/CNN',sess.graph)
+    train_writer = tf.compat.v1.summary.FileWriter('handwritten_numeral_recognition/log/CNN',sess.graph)
 
 
 # matplotlib 列印 loss, accuracy 折線圖
@@ -245,7 +245,7 @@ plt.plot(epoch_list, loss_list, label = 'loss')
 plt.ylabel('loss')
 plt.xlabel('epoch')
 plt.legend(['loss'], loc='upper left')
-plt.savefig('loss.png')
+plt.savefig('handwritten_numeral_recognition/loss.png')
 
 
 fig = plt.gcf()
@@ -256,7 +256,7 @@ plt.ylim(0.8,1)
 plt.ylabel('accuracy')
 plt.xlabel('epoch')
 plt.legend(['accuracy'], loc='upper right')
-plt.savefig('accuracy.png')
+plt.savefig('handwritten_numeral_recognition/accuracy.png')
 
 ############
 # 查看多筆資料，以及 label
@@ -284,7 +284,7 @@ def plot_images_labels_prediction(images,labels,prediction,idx,filename, num=10)
 
 plot_images_labels_prediction(x_test_norm,
                               y_test_one_hot,
-                              prediction_result,0, "result.png", num=10)
+                              prediction_result,0, "handwritten_numeral_recognition/result.png", num=10)
 
 # 找出預測錯誤
 for i in range(400):
